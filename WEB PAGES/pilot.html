@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinterest Clone</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background-color: #E60023;
+            color: white;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav .search-bar input {
+            padding: 0.5rem;
+            border: none;
+            border-radius: 20px;
+            width: 300px;
+        }
+
+        nav .nav-items a {
+            margin-left: 1rem;
+            text-decoration: none;
+            color: white;
+        }
+
+        main {
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .pin-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .pin {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .pin img {
+            width: 100%;
+            display: block;
+        }
+
+        .pin .pin-title {
+            padding: 0.5rem;
+            font-weight: bold;
+        }
+
+        .pin:hover {
+            transform: scale(1.05);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 2rem;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal img {
+            max-width: 100%;
+            border-radius: 16px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Pinterest Clone</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search">
+        </div>
+        <div class="nav-items">
+            <a href="#">Home</a>
+            <a href="#">Explore</a>
+            <a href="#">Profile</a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="pin-container">
+            <!-- Example pin -->
+            <div class="pin" onclick="openModal('Pin Title', 'This is a description of the pin.', 'image1.jpg')">
+                <img src="image1.jpg" alt="Pin Image">
+                <div class="pin-title">Pin Title</div>
+            </div>
+            <!-- Add more pins as needed -->
+        </div>
+    </main>
+
+    <div class="modal" id="pinModal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <img id="modalImage" src="" alt="Pin Image">
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+        </div>
+    </div>
+
+    <script>
+        function openModal(title, description, imageSrc) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalDescription').innerText = description;
+            document.getElementById('modalImage').src = imageSrc;
+            document.getElementById('pinModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('pinModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
