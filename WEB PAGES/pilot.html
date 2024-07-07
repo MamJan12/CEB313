@@ -46,17 +46,19 @@
         }
 
         .pin-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1rem;
+            column-count: 4;
+            column-gap: 1rem;
         }
 
         .pin {
+            background-color: white;
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
             cursor: pointer;
             transition: transform 0.3s;
+            break-inside: avoid;
         }
 
         .pin img {
@@ -87,18 +89,21 @@
 
         .modal-content {
             background-color: white;
-            margin: 15% auto;
+            margin: 10% auto;
             padding: 2rem;
             border: 1px solid #888;
             width: 80%;
             max-width: 600px;
             border-radius: 16px;
             text-align: center;
+            position: relative;
         }
 
         .close-button {
             color: #aaa;
-            float: right;
+            position: absolute;
+            top: 10px;
+            right: 20px;
             font-size: 28px;
             font-weight: bold;
         }
@@ -131,10 +136,34 @@
 
     <main>
         <div class="pin-container">
-            <!-- Example pin -->
-            <div class="pin" onclick="openModal('Pin Title', 'This is a description of the pin.', 'image1.jpg')">
-                <img src="image1.jpg" alt="Pin Image">
-                <div class="pin-title">Pin Title</div>
+            <!-- Example pins with varying heights -->
+            <div class="pin" onclick="openModal('Pin Title 1', 'Description 1', 'https://via.placeholder.com/250x300')">
+                <img src="https://via.placeholder.com/250x300" alt="Pin Image">
+                <div class="pin-title">Pin Title 1</div>
+            </div>
+            <div class="pin" onclick="openModal('Pin Title 2', 'Description 2', 'https://via.placeholder.com/250x350')">
+                <img src="https://via.placeholder.com/250x350" alt="Pin Image">
+                <div class="pin-title">Pin Title 2</div>
+            </div>
+            <div class="pin" onclick="openModal('Pin Title 3', 'Description 3', 'https://via.placeholder.com/250x400')">
+                <img src="https://via.placeholder.com/250x400" alt="Pin Image">
+                <div class="pin-title">Pin Title 3</div>
+            </div>
+            <div class="pin" onclick="openModal('Pin Title 1', 'Description 1', 'https://via.placeholder.com/250x300')">
+                <img src="https://via.placeholder.com/250x300" alt="Pin Image">
+                <div class="pin-title">Pin Title 1</div>
+            </div>
+            <div class="pin" onclick="openModal('Pin Title 4', 'Description 4', 'https://via.placeholder.com/250x450')">
+                <img src="https://via.placeholder.com/250x450" alt="Pin Image">
+                <div class="pin-title">Pin Title 4</div>
+            </div>
+            <div class="pin" onclick="openModal('Pin Title 5', 'Description 5', 'https://via.placeholder.com/250x500')">
+                <img src="https://via.placeholder.com/250x500" alt="Pin Image">
+                <div class="pin-title">Pin Title 5</div>
+            </div>
+            <div class="pin" onclick="openModal('Pin Title 1', 'Description 1', 'https://via.placeholder.com/250x300')">
+                <img src="https://via.placeholder.com/250x300" alt="Pin Image">
+                <div class="pin-title">Pin Title 1</div>
             </div>
             <!-- Add more pins as needed -->
         </div>
